@@ -3,87 +3,96 @@ import 'package:furniture/commons/reusable_textfield.dart';
 import 'package:furniture/commons/reusable_button.dart';
 import 'package:furniture/screens/login_screen.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  TextEditingController password = TextEditingController();
+
+  TextEditingController confirmPassword = TextEditingController();
+
+  String? confirmPasswordValidator(String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return 'Confirm Password is required';
+    }
+
+    if (password != confirmPassword) {
+      return 'Passwords do not match';
+    }
+
+    return null; // Passwords match
+  }
+
+  String? nameValidator(String? name) {
+    if (name == null || name.isEmpty) {
+      return 'Name is required';
+    }
+
+    return null;
+  }
+
+  String? Function(String?)? emailValidator = (String? email) {
+    if (email == null || email.isEmpty) {
+      return 'Email address is required';
+    }
+
+    // Regular expression to validate email addresses
+    final RegExp emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
+
+    if (!emailRegex.hasMatch(email)) {
+      return 'Invalid email address';
+    }
+
+    return null; // Email is valid
+  };
+
+  String? passwordValidator(String? password) {
+    if (password == null || password.isEmpty) {
+      return 'Password is required';
+    }
+
+    if (password.length <= 8) {
+      return 'Password must be at least 8 characters long';
+    }
+
+    final RegExp specialCharRegex = RegExp(r'[!@#\$%^&*(),.?":{}|<>]');
+
+    if (!specialCharRegex.hasMatch(password)) {
+      return 'Password must contain at least 1 special character';
+    }
+
+    return null; // Password is valid
+  }
+
+  String? ConfirmpasswordValidator(String? password) {
+    if (password == null || password.isEmpty) {
+      return 'Password is required';
+    }
+
+    if (password.length <= 8) {
+      return 'Password must be at least 8 characters long';
+    }
+
+    final RegExp specialCharRegex = RegExp(r'[!@#\$%^&*(),.?":{}|<>]');
+
+    if (!specialCharRegex.hasMatch(password)) {
+      return 'Password must contain at least 1 special character';
+    }
+
+    return null; // Password is valid
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    TextEditingController password = TextEditingController();
-    TextEditingController confirmPassword = TextEditingController();
-    String? confirmPasswordValidator(
-        String? password, String? confirmPassword) {
-      if (confirmPassword == null || confirmPassword.isEmpty) {
-        return 'Confirm Password is required';
-      }
-
-      if (password != confirmPassword) {
-        return 'Passwords do not match';
-      }
-
-      return null; // Passwords match
-    }
-
-    String? nameValidator(String? name) {
-      if (name == null || name.isEmpty) {
-        return 'Name is required';
-      }
-
-      return null;
-    }
-
-    String? Function(String?)? emailValidator = (String? email) {
-      if (email == null || email.isEmpty) {
-        return 'Email address is required';
-      }
-
-      // Regular expression to validate email addresses
-      final RegExp emailRegex = RegExp(
-        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-      );
-
-      if (!emailRegex.hasMatch(email)) {
-        return 'Invalid email address';
-      }
-
-      return null; // Email is valid
-    };
-    String? passwordValidator(String? password) {
-      if (password == null || password.isEmpty) {
-        return 'Password is required';
-      }
-
-      if (password.length <= 8) {
-        return 'Password must be at least 8 characters long';
-      }
-
-      final RegExp specialCharRegex = RegExp(r'[!@#\$%^&*(),.?":{}|<>]');
-
-      if (!specialCharRegex.hasMatch(password)) {
-        return 'Password must contain at least 1 special character';
-      }
-
-      return null; // Password is valid
-    }
-
-    String? ConfirmpasswordValidator(String? password) {
-      if (password == null || password.isEmpty) {
-        return 'Password is required';
-      }
-
-      if (password.length <= 8) {
-        return 'Password must be at least 8 characters long';
-      }
-
-      final RegExp specialCharRegex = RegExp(r'[!@#\$%^&*(),.?":{}|<>]');
-
-      if (!specialCharRegex.hasMatch(password)) {
-        return 'Password must contain at least 1 special character';
-      }
-
-      return null; // Password is valid
-    }
 
     return Scaffold(
       body: SingleChildScrollView(

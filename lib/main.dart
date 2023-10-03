@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           headline1: TextStyle(
             color: Color(0xff606060),
             fontFamily: 'Gelasio',
