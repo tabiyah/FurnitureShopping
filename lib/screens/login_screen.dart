@@ -148,12 +148,12 @@ class LoginScreen extends StatelessWidget {
                           child: ReusableButton(
                             buttonText: 'Login',
                             onPressed: () {
-                              if (formKey.currentState!.validate() == true) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginScreen()));
-                              }
+                              // if (formKey.currentState!.validate() == true) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                              // }
                             },
                             bgColor: Color(0xff242424),
                             txtColor: Color(0xffFFFFFF),
