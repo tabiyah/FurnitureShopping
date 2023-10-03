@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/commons/reusable_textfield.dart';
 import 'package:furniture/commons/reusable_button.dart';
+import 'package:furniture/screens/home_screen.dart';
 import 'package:furniture/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -152,7 +153,7 @@ class LoginScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginScreen()));
+                                      builder: (context) => HomeScreen()));
                               // }
                             },
                             bgColor: Color(0xff242424),

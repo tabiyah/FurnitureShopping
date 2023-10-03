@@ -199,15 +199,15 @@ class SignupScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 67),
                       child: Row(
                         children: [
-                          Text("Already have an account"),
-                          new GestureDetector(
+                          const Text("Already have an account"),
+                          GestureDetector(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => LoginScreen()));
                             },
-                            child: new Text(
+                            child: const Text(
                               "Signup",
                               style: TextStyle(
                                 color: Color(0xff303030),
@@ -222,7 +222,7 @@ class SignupScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ]),
