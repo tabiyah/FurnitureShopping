@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/commons/reusable_textfield.dart';
 import 'package:furniture/commons/reusable_button.dart';
-import 'package:furniture/screens/signup_screen.dart';
+import 'package:furniture/screens/login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    TextEditingController password = TextEditingController();
     String? Function(String?)? emailValidator = (String? email) {
       if (email == null || email.isEmpty) {
         return 'Email address is required';
@@ -27,6 +28,24 @@ class LoginScreen extends StatelessWidget {
       return null; // Email is valid
     };
     String? passwordValidator(String? password) {
+      if (password == null || password.isEmpty) {
+        return 'Password is required';
+      }
+
+      if (password.length <= 8) {
+        return 'Password must be at least 8 characters long';
+      }
+
+      final RegExp specialCharRegex = RegExp(r'[!@#\$%^&*(),.?":{}|<>]');
+
+      if (!specialCharRegex.hasMatch(password)) {
+        return 'Password must contain at least 1 special character';
+      }
+
+      return null; // Password is valid
+    }
+
+    String? ConfirmpasswordValidator(String? password) {
       if (password == null || password.isEmpty) {
         return 'Password is required';
       }
@@ -125,19 +144,9 @@ class LoginScreen extends StatelessWidget {
                       label: 'Password',
                       validator: passwordValidator,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 18.0, bottom: 18),
-                      child: Text(
-                        "Forgot Password",
-                        style: TextStyle(
-                          color: Color(0xff303030),
-                          fontFamily: 'Gelasio',
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w500,
-                          height: 1.26,
-                          letterSpacing: 1.0,
-                        ),
-                      ),
+                    ReusableTextField(
+                      label: 'Password',
+                      validator: ConfirmpasswordValidator,
                     ),
                     Center(
                       child: Padding(
@@ -146,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                           width: size.width,
                           height: 54,
                           child: ReusableButton(
-                            buttonText: 'Login',
+                            buttonText: 'Signup',
                             onPressed: () {
                               if (formKey.currentState!.validate() == true) {
                                 Navigator.push(
@@ -161,23 +170,31 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    new GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignupScreen()));
-                      },
-                      child: new Text(
-                        "Signup",
-                        style: TextStyle(
-                          color: Color(0xff303030),
-                          fontFamily: 'Gelasio',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          height: 1.26,
-                          letterSpacing: 1.0,
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 67),
+                      child: Row(
+                        children: [
+                          Text("Already have an account"),
+                          new GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                            },
+                            child: new Text(
+                              "Signup",
+                              style: TextStyle(
+                                color: Color(0xff303030),
+                                fontFamily: 'Gelasio',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                height: 1.26,
+                                letterSpacing: 1.0,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
