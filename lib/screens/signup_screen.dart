@@ -11,6 +11,28 @@ class SignupScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     GlobalKey<FormState> formKey = GlobalKey<FormState>();
     TextEditingController password = TextEditingController();
+    TextEditingController confirmPassword = TextEditingController();
+    String? confirmPasswordValidator(
+        String? password, String? confirmPassword) {
+      if (confirmPassword == null || confirmPassword.isEmpty) {
+        return 'Confirm Password is required';
+      }
+
+      if (password != confirmPassword) {
+        return 'Passwords do not match';
+      }
+
+      return null; // Passwords match
+    }
+
+    String? nameValidator(String? name) {
+      if (name == null || name.isEmpty) {
+        return 'Name is required';
+      }
+
+      return null;
+    }
+
     String? Function(String?)? emailValidator = (String? email) {
       if (email == null || email.isEmpty) {
         return 'Email address is required';
@@ -138,14 +160,17 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
+                    ReusableTextField(label: 'Name', validator: nameValidator),
                     ReusableTextField(
                         label: 'Email', validator: emailValidator),
                     ReusableTextField(
+                      controller: password,
                       label: 'Password',
                       validator: passwordValidator,
                     ),
                     ReusableTextField(
-                      label: 'Password',
+                      controller: confirmPassword,
+                      label: 'Confirm Password',
                       validator: ConfirmpasswordValidator,
                     ),
                     Center(
