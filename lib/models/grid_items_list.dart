@@ -21,5 +21,5 @@ List<GridItemModel> gitems = [
   GridItemModel(
       name: "Black Simole Lamp", image: "assets/lamp.png", price: 12.0),
   GridItemModel(
-      name: "Black Simole Lamp", image: "assets/lamp.png", price: 12.0),
+      name: "Black Simole Lamp", image: "assets/lampsh.png", price: 12.0),
 ];
