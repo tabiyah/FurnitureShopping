@@ -21,7 +21,7 @@ class ReusableTextField extends StatelessWidget {
           padding: const EdgeInsets.only(left: 40.0),
           child: Text(
             label,
-            style: TextStyle(fontSize: 14, color: Color(0xff909090)),
+            style: const TextStyle(fontSize: 14, color: Color(0xff909090)),
           ),
         ),
         Padding(

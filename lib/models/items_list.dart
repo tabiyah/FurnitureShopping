@@ -1,36 +1,34 @@
-import 'package:flutter/material.dart';
-
 class ItemModel {
-  String name;
-  String image;
-  ItemModel({
+  final String name;
+  final String image;
+  const ItemModel({
     required this.name,
     required this.image,
   });
 }
 
-List<ItemModel> items = [
-  ItemModel(
+List<ItemModel> categories = [
+  const ItemModel(
     name: "Favorites",
     image: "assets/Vector.png",
   ),
-  ItemModel(
+  const ItemModel(
     name: "Chair",
     image: "assets/chair.png",
   ),
-  ItemModel(
+  const ItemModel(
     name: "Table",
     image: "assets/table.png",
   ),
-  ItemModel(
+  const ItemModel(
     name: "ArmChair",
     image: "assets/sofa.png",
   ),
-  ItemModel(
+  const ItemModel(
     name: "Bed",
     image: "assets/bed.png",
   ),
-  ItemModel(
+  const ItemModel(
     name: "Lamp",
     image: "assets/bed.png",
   ),

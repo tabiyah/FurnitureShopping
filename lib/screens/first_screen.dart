@@ -35,8 +35,8 @@ class FirstScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32, left: 45, right: 24),
+            const Padding(
+              padding: EdgeInsets.only(top: 32, left: 45, right: 24),
               child: Text(
                 'The best simple place where you discover most wonderful furnitures make your home beautiful',
                 style: TextStyle(
@@ -50,7 +50,7 @@ class FirstScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 150,
             ),
             Center(
@@ -60,11 +60,13 @@ class FirstScreen extends StatelessWidget {
                 child: ReusableButton(
                   buttonText: 'Get Started',
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
                   },
-                  bgColor: Color(0xff242424),
-                  txtColor: Color(0xffFFFFFF),
+                  bgColor: const Color(0xff242424),
+                  txtColor: const Color(0xffFFFFFF),
                 ),
               ),
             ),

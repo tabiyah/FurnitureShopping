@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return 'Invalid email address';
     }
 
-    return null; // Email is val
+    return null;
   }
 
   String? passwordValidator(String? password) {
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return 'Password must contain at least 1 special character';
     }
 
-    return null; // Password is valid
+    return null;
   }
 
   @override
@@ -110,14 +110,14 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(right: 30),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(0xffFFFFFF),
+                  color: const Color(0xffFFFFFF),
                   boxShadow: [
                     BoxShadow(
-                      color:
-                          Color.fromARGB(255, 223, 220, 220).withOpacity(0.5),
+                      color: const Color.fromARGB(255, 223, 220, 220)
+                          .withOpacity(0.5),
                       spreadRadius: 3,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   key: formKey,
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       ReusableTextField(
@@ -161,11 +161,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => HomeScreen()));
+                                          builder: (context) =>
+                                              const HomeScreen()));
                                 }
                               },
-                              bgColor: Color(0xff242424),
-                              txtColor: Color(0xffFFFFFF),
+                              bgColor: const Color(0xff242424),
+                              txtColor: const Color(0xffFFFFFF),
                             ),
                           ),
                         ),
@@ -175,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignupScreen()));
+                                  builder: (context) => const SignupScreen()));
                         },
                         child: const Text(
                           "Signup",
