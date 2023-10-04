@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(
-          headline1: TextStyle(
+        primarySwatch: Colors.grey,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
             color: Color(0xff606060),
             fontFamily: 'Gelasio',
             fontSize: 24.0,
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
             height: 1.25,
             letterSpacing: 1.0,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             color: Color(0xff303030),
             fontFamily: 'Gelasio',
             fontSize: 30.0,
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: FirstScreen(),
+      home: const FirstScreen(),
     );
   }
 }
