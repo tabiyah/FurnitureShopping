@@ -96,14 +96,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Text(
                 'Hello!',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 18, left: 24, bottom: 40),
               child: Text(
                 'Welcome Back',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
             Padding(
