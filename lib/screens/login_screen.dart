@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/commons/reusable_textfield.dart';
 import 'package:furniture/commons/reusable_button.dart';
+import 'package:furniture/commons/reusable_top.dart';
 import 'package:furniture/screens/home_screen.dart';
 import 'package:furniture/screens/signup_screen.dart';
 
@@ -57,55 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 50,
-                left: 30,
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 120,
-                    height: 1,
-                    color: const Color(0xffBDBDBD),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Image.asset(
-                    'assets/logo.png',
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 120,
-                      height: 1,
-                      color: const Color(0xffBDBDBD),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 24,
-                top: 40,
-              ),
-              child: Text(
-                'Hello!',
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 18, left: 24, bottom: 40),
-              child: Text(
-                'Welcome Back',
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
-            ),
+            const ReusableTop(),
             Padding(
               padding: const EdgeInsets.only(right: 30),
               child: Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/commons/reusable_textfield.dart';
 import 'package:furniture/commons/reusable_button.dart';
+import 'package:furniture/commons/reusable_top.dart';
 import 'package:furniture/screens/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -95,38 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 50,
-              left: 30,
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: 120,
-                  height: 1,
-                  color: const Color(0xffBDBDBD),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  'assets/logo.png',
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 120,
-                    height: 1,
-                    color: const Color(0xffBDBDBD),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const ReusableTop(),
           Padding(
             padding: const EdgeInsets.only(
               left: 24,

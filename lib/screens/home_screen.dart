@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/models/items_list.dart';
 import 'package:furniture/models/grid_items_list.dart';
+import 'package:furniture/screens/cart_screen.dart';
 import 'package:furniture/screens/products_screen.dart';
+import 'package:furniture/commons/reusable_category_icon.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: Column(
         children: [
@@ -67,29 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Container(
-                      width: 50.0,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: const Color(0xfff5f5f5),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.white),
-                      ),
-                      padding: const EdgeInsets.all(8.0),
-                      child:
-                          Center(child: Image.asset(categories[index].image)),
-                    ),
-                    const SizedBox(height: 8.0),
-                    Text(
-                      categories[index].name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                );
+                return CaategoryIcon(index);
               },
               separatorBuilder: (context, index) => const SizedBox(width: 16.0),
               itemCount: categories.length,
@@ -112,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 image: item.image,
                                 name: item.name,
                                 price: item.price,
+                                orderPrice: item.orderPrice,
                                 description: item.description)));
                   },
                   child: Container(
@@ -174,12 +155,18 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             IconButton(
-              icon: const Icon(Icons.notifications),
+              icon: const Icon(Icons.shopping_cart),
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
+                        builder: (context) => const CartScreen(
+                              image: "",
+                              name: "",
+                              totalPrice: 0,
+                              quantity: 0,
+                              actualPrice: 0,
+                            )));
               },
             ),
             IconButton(

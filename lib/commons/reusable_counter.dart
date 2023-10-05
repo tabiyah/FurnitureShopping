@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/commons/reusable_container.dart';
 
 class ReusableCounter extends StatelessWidget {
   final int value;
@@ -16,42 +17,17 @@ class ReusableCounter extends StatelessWidget {
       children: [
         Row(
           children: [
-            const SizedBox(width: 12),
-            GestureDetector(
-              onTap: onIncrementPressed,
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(3)),
-                  color: Color(0xfff0f0f0),
-                ),
-                child: const Icon(
-                  Icons.add,
-                  color: Colors.black,
-                ),
-              ),
-            ),
+            ReusableContainer(
+                functionName: onIncrementPressed, iconName: Icons.add),
             const SizedBox(width: 12),
             Text(
               "$value",
-              style: const TextStyle(fontSize: 16, letterSpacing: 1),
+              style: const TextStyle(
+                  fontSize: 20, letterSpacing: 1, fontWeight: FontWeight.bold),
             ),
             const SizedBox(width: 12),
-            GestureDetector(
-                onTap: onDecrementPressed,
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(3)),
-                    color: Color(0xfff0f0f0),
-                  ),
-                  child: const Icon(
-                    Icons.remove,
-                    color: Colors.black,
-                  ),
-                )),
+            ReusableContainer(
+                functionName: onDecrementPressed, iconName: Icons.remove)
           ],
         )
       ],

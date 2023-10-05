@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
         textTheme: const TextTheme(
           displayLarge: TextStyle(
             color: Color(0xff606060),
@@ -29,6 +28,15 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w700,
             height: 1.26,
             letterSpacing: 1.0,
+          ),
+          displaySmall: TextStyle(
+            fontFamily: 'Nunito Sans',
+            fontSize: 18.0,
+            fontWeight: FontWeight.normal,
+            height: 1.94,
+            letterSpacing: 0.0,
+            wordSpacing: 0.4,
+            color: Color(0xFF808080),
           ),
         ),
       ),

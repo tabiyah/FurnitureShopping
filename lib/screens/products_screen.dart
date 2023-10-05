@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/commons/reusable_button.dart';
 import 'package:furniture/commons/reusable_counter.dart';
+import 'package:furniture/screens/cart_screen.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen(
-      {super.key,
-      required this.image,
-      required this.name,
-      required this.price,
-      required this.description});
+  const ProductsScreen({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.price,
+    required this.description,
+    required this.orderPrice,
+  });
   final String image;
   final String name;
   final double price;
   final String description;
+  final double orderPrice;
   @override
   State<ProductsScreen> createState() => _ProductsScreenState();
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
   int quantity = 1;
+  double? currentPrice;
+  @override
+  void initState() {
+    super.initState();
+    currentPrice = widget.price;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +80,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$${widget.price}",
+                      "\$$currentPrice",
                       style: const TextStyle(
                         color: Color(0xff303030),
                         fontFamily: 'Gelasio',
@@ -84,12 +95,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       onIncrementPressed: () {
                         setState(() {
                           quantity++;
+                          currentPrice = widget.price * quantity;
                         });
                       },
                       onDecrementPressed: () {
                         setState(() {
                           if (quantity > 1) {
                             quantity--;
+                            currentPrice = widget.price * quantity;
                           }
                         });
                       },
@@ -165,7 +178,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         height: 60,
                         child: ReusableButton(
                             buttonText: "Add To Cart",
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartScreen(
+                                            image: widget.image,
+                                            name: widget.name,
+                                            totalPrice: currentPrice,
+                                            quantity: quantity,
+                                            actualPrice: widget.orderPrice,
+                                          )));
+                            },
                             bgColor: Colors.black,
                             txtColor: Colors.white),
                       ),

@@ -7,7 +7,7 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: Container(
         height: size.height,
@@ -25,29 +25,21 @@ class FirstScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 230, left: 24),
               child: Text(
                 'MAKE YOUR',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 18, left: 24),
               child: Text(
                 'HOME BEAUTIFUL',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 32, left: 45, right: 24),
+            Padding(
+              padding: const EdgeInsets.only(top: 32, left: 45, right: 24),
               child: Text(
                 'The best simple place where you discover most wonderful furnitures make your home beautiful',
-                style: TextStyle(
-                  fontFamily: 'Nunito Sans',
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  height: 1.94,
-                  letterSpacing: 0.0,
-                  wordSpacing: 0.4,
-                  color: Color(0xFF808080),
-                ),
+                style: Theme.of(context).textTheme.displaySmall,
               ),
             ),
             const SizedBox(
