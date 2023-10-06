@@ -9,22 +9,26 @@ class CaategoryIcon extends StatefulWidget {
 }
 
 class _CaategoryIconState extends State<CaategoryIcon> {
+  bool select = false;
+
   @override
   Widget build(BuildContext context) {
-    bool select = categories[widget.index].select;
+    select = categories[widget.index].select;
+    Color containerColor = select ? Colors.blue : const Color(0xfff5f5f5);
+
     return Column(
       children: [
         GestureDetector(
           onTap: () {
             setState(() {
-              select = true;
+              select = !select; // Toggle the select state
             });
           },
           child: Container(
             width: 50.0,
             height: 50,
             decoration: BoxDecoration(
-              color: const Color(0xfff5f5f5),
+              color: containerColor, // Use the containerColor
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.white),
             ),
