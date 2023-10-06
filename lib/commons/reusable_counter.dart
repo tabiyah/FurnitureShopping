@@ -18,7 +18,7 @@ class ReusableCounter extends StatelessWidget {
         Row(
           children: [
             ReusableContainer(
-                functionName: onIncrementPressed, iconName: Icons.add),
+                onCounter: onIncrementPressed, iconName: Icons.add),
             const SizedBox(width: 12),
             Text(
               "$value",
@@ -27,7 +27,7 @@ class ReusableCounter extends StatelessWidget {
             ),
             const SizedBox(width: 12),
             ReusableContainer(
-                functionName: onDecrementPressed, iconName: Icons.remove)
+                onCounter: onDecrementPressed, iconName: Icons.remove)
           ],
         )
       ],

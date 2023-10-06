@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class ReusableContainer extends StatelessWidget {
   const ReusableContainer(
-      {super.key, required this.functionName, required this.iconName});
-  final Function() functionName;
+      {super.key, required this.onCounter, required this.iconName});
+  final Function() onCounter;
   final IconData iconName;
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ReusableContainer extends StatelessWidget {
       children: [
         const SizedBox(width: 12),
         GestureDetector(
-          onTap: functionName,
+          onTap: onCounter,
           child: Container(
               height: 35,
               width: 35,
