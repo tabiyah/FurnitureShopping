@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(
-          headline1: TextStyle(
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
             color: Color(0xff606060),
             fontFamily: 'Gelasio',
             fontSize: 24.0,
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             height: 1.25,
             letterSpacing: 1.0,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             color: Color(0xff303030),
             fontFamily: 'Gelasio',
             fontSize: 30.0,
@@ -29,9 +29,35 @@ class MyApp extends StatelessWidget {
             height: 1.26,
             letterSpacing: 1.0,
           ),
+          displaySmall: TextStyle(
+            fontFamily: 'Nunito Sans',
+            fontSize: 18.0,
+            fontWeight: FontWeight.normal,
+            height: 1.94,
+            letterSpacing: 0.0,
+            wordSpacing: 0.4,
+            color: Color(0xFF808080),
+          ),
+          bodyLarge: TextStyle(
+            color: Color(0xff303030),
+            fontFamily: 'Gelasio',
+            fontSize: 22.0,
+            fontWeight: FontWeight.w700,
+            height: 1.26,
+            letterSpacing: 1.0,
+          ),
+          bodyMedium: TextStyle(
+            fontFamily: 'Nunito Sans',
+            fontSize: 15.0,
+            fontWeight: FontWeight.normal,
+            height: 1.94,
+            letterSpacing: 0.0,
+            wordSpacing: 0.4,
+            color: Color(0xFF808080),
+          ),
         ),
       ),
-      home: FirstScreen(),
+      home: const FirstScreen(),
     );
   }
 }

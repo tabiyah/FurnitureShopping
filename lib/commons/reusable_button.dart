@@ -21,7 +21,7 @@ class ReusableButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: bgColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(3.0),
+          borderRadius: BorderRadius.circular(8.0),
         ),
       ),
       child: Text(
