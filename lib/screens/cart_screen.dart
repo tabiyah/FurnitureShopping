@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/commons/reuasabel_bottom_button.dart';
+import 'package:furniture/commons/reusable_appbar.dart';
 import 'package:furniture/commons/reusable_button.dart';
 import 'package:furniture/commons/reusable_counter.dart';
+import 'package:furniture/screens/checkout_screen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({
@@ -40,32 +43,7 @@ class _CartScreenState extends State<CartScreen> {
         padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
         child: Column(
           children: [
-            Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.arrow_back_ios,
-                  ),
-                ),
-                const SizedBox(
-                  width: 120,
-                ),
-                const Text(
-                  "My Cart",
-                  style: TextStyle(
-                    color: Color(0xff303030),
-                    fontFamily: 'Gelasio',
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w500,
-                    height: 1.26,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-              ],
-            ),
+            const ReusableAppBar(title: "My Cart"),
             const SizedBox(
               height: 30,
             ),
@@ -173,27 +151,17 @@ class _CartScreenState extends State<CartScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-          elevation: 0.0,
-          child: Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: SizedBox(
-                    height: 70,
-                    width: size.width,
-                    child: ReusableButton(
-                      buttonText: 'Add to cart',
-                      onPressed: () {},
-                      bgColor: const Color(0xff242424),
-                      txtColor: const Color(0xffFFFFFF),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )),
+      bottomNavigationBar: ReusableBottomButton(
+          bottomButton: ReusableButton(
+              buttonText: "CheckOut",
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CheckoutScreen()));
+              },
+              bgColor: Colors.black,
+              txtColor: Colors.white)),
     );
   }
 }

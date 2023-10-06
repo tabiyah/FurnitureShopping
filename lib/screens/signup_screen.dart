@@ -100,7 +100,6 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.only(
               left: 24,
-              top: 40,
             ),
             child: Text(
               'Hello!',

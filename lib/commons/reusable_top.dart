@@ -11,10 +11,7 @@ class _ReusableTopState extends State<ReusableTop> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 50,
-        left: 30,
-      ),
+      padding: const EdgeInsets.only(top: 50, left: 30, bottom: 50),
       child: Row(
         children: [
           Container(
