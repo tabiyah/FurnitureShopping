@@ -37,20 +37,63 @@ class _ProductsScreenState extends State<ProductsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 70),
-              child: SizedBox(
-                height: 420,
-                width: 900,
-                child: ClipRRect(
-                  borderRadius:
-                      const BorderRadius.only(bottomLeft: Radius.circular(60)),
-                  child: Image.asset(
-                    widget.image,
-                    fit: BoxFit.cover,
+            Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 70),
+                  child: SizedBox(
+                    height: 420,
+                    width: 900,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(60)),
+                      child: Image.asset(
+                        widget.image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Positioned(
+                  left: 40,
+                  top: 50,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Center(
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Icon(Icons.arrow_back_ios))),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 36,
+                  top: 170,
+                  child: Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset("assets/circles.png"),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 10,
